@@ -31,12 +31,5 @@ def creaDizionarioBilancio(self):
             uscenti += self.grafo[archiuscenti[0]][archiuscenti[1]]["weight"]
         return entranti - uscenti
 
-#suggerimenti esame
-Suggerimento.
-In un grafo orientato, è possibile utilizzare i seguenti metodi:
-• outDegreeOf: restituisce il numero di archi uscenti da un determinato vertice;
-• inDegreeOf: restituisce il numero di archi entranti in un determinato vertice;
-• outgoingEdgesOf: restituisce il set di archi uscenti da un determinato vertice;
-• incomingEdgesOf: restituisce il set di archi entranti in un determinato vertice;
-• Graphs.successorListOf: restituisce la lista di vertici raggiunti dagli outgoingEdges;
-• Graphs.predecessorListOf: restituisce la lista di vertici raggiunti dagli incomingEdges.
+#Ordinare un dizionario
+list(sorted(self.bestDizio.items(), key=lambda item: item[1], reverse=True))

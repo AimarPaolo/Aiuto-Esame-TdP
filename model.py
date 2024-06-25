@@ -11,3 +11,22 @@ def addEdgePesati(self, year):
 
 #PER VEDERE I VICINI IN UN GRAFO UTILIZZO
 self.grafo.neighbors(nodo_partenza)
+
+#PER VEDERE GLI ARCHI ENTRANTI ED USCENTI
+def creaDizionarioBilancio(self):
+    self.bilancio = {}
+    for n in self._grafo.nodes:
+        self.bilancio[n.AlbumId] = 0
+        for bil in self._grafo.predecessors(n):
+            self.bilancio[n.AlbumId] += float(self._grafo[bil][n]['weight'])
+        for bil2 in self._grafo.successors(n):
+            self.bilancio[n.AlbumId] -= float(self._grafo[n][bil2]['weight'])
+#OPPURE
+    def bilancio(self, nodo):
+        entranti = 0
+        uscenti = 0
+        for archientranti in self.grafo.in_edges(nodo):
+            entranti += self.grafo[archientranti[0]][archientranti[1]]["weight"]
+        for archiuscenti in self.grafo.out_edges(nodo):
+            uscenti += self.grafo[archiuscenti[0]][archiuscenti[1]]["weight"]
+        return entranti - uscenti

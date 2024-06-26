@@ -33,3 +33,11 @@ def creaDizionarioBilancio(self):
 
 #Ordinare un dizionario
 list(sorted(self.bestDizio.items(), key=lambda item: item[1], reverse=True))
+
+#nodi raggiungibili
+def analisi(self, attoreStringa):
+    raggiungibili = []
+    attore = self._idMapStringa[attoreStringa]
+    for nodi in nx.dfs_tree(self.grafo, attore):
+        raggiungibili.append((nodi, nodi.last_name))
+    return sorted(raggiungibili, key=lambda x: x[1])

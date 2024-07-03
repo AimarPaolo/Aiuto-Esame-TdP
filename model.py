@@ -75,3 +75,5 @@ def analisi(self, attoreStringa):
 
         path.reverse()
         return path
+    #metodo geopy per calcolare la distanza, per importarlo --> from geopy.distance import distance
+    dist = distance((u.latitude, u.longitude), (v.latitude, v.longitude)).km
